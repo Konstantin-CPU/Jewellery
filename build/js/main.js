@@ -71,17 +71,15 @@ window.addEventListener("load", function() {
 
   //catalog filter
 
-
-
   const catalogFilter = document.querySelector(".filter");
   const bodyOverlay = document.querySelector(".page__body-overlay");
   const filterContainer = document.querySelector(".catalog__filter-container");
 
-  if (this.window.innerWidth >= 1024) {
-    filterContainer.classList.remove("visually-hidden");
-  }
-
   if (catalogFilter) {
+    if (window.innerWidth >= 1024) {
+      filterContainer.classList.remove("visually-hidden");
+    }
+
     document.querySelector(".catalog__filter-button").addEventListener("click", () => {
       bodyOverlay.classList.remove("visually-hidden");
       catalogFilter.classList.add("filter--opened");
@@ -140,6 +138,7 @@ window.addEventListener("load", function() {
   const loginToggle = document.querySelector(".login__toggle--popup");
 
   loginHeaderToggle.forEach((toggle) => {
+    console.log(toggle)
     toggle.removeAttribute("href");
   })
 
