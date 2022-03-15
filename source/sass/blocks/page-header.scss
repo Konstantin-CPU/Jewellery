@@ -116,9 +116,12 @@
 
 .page-header__info-list,
 .page-header__navigation-login,
-.page-header__burger-button,
-.page-header__cart-button {
+.page-header__burger-button {
   display: none;
+}
+
+.page-header__login-link {
+  cursor: pointer;
 }
 
 .page-header__menu-link--login {
@@ -129,11 +132,29 @@
   fill: $brown;
 }
 
+.page-header__cart-icon {
+  display: none;
+}
+
 @media (max-width: $tablet-width) {
   .page-header__main-form,
-  .page-header__menu,
   .page-header__navigation {
     display: none;
+  }
+
+  .page-header__menu {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .page-header__menu-item:not(.page-header__menu-item--cart) {
+    display: none;
+  }
+
+  .page-header__menu-item--cart {
+    span {
+      display: none;
+    }
   }
 
   .page-header__wrapper {
@@ -155,7 +176,7 @@
   }
 
   .page-header__burger-button,
-  .page-header__cart-button {
+  .page-header__cart-link {
     display: block;
     align-self: center;
     border: 0;
@@ -168,6 +189,11 @@
   .page-header__burger-icon,
   .page-header__cart-icon {
     stroke: $dark;
+  }
+
+  .page-header__cart-link {
+    width: 19px;
+    height: 17px;
   }
 
   .page-header__navigation-form {
@@ -288,6 +314,10 @@
       line-height: 130%;
       color: $white;
     }
+  }
+
+  .page-header__cart-icon {
+    display: block;
   }
 }
 

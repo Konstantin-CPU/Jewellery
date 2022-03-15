@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="accordion-icon" viewBox="0 0 17 10">
 <path d="M1 1L8.5 9L16 1" stroke="#A87B62"/>
+</symbol><symbol id="arrow-footer-icon" viewBox="0 0 30 11">
+<path d="M0 5.5H29M29 5.5L23.5135 1M29 5.5L23.5135 10" stroke="white"/>
 </symbol><symbol id="arrow-icon" viewBox="0 0 30 11">
-<path d="M0 5.5H29M29 5.5L23.5135 1M29 5.5L23.5135 10"/>
+<path d="M0 5.5H29M29 5.5L23.5135 1M29 5.5L23.5135 10" stroke="#A87B62"/>
 </symbol><symbol id="burger-menu-icon" viewBox="0 0 25 18">
 <path d="M0 1H25M0 9H25M0 17H25" stroke-width="2"/>
 </symbol><symbol id="cart-icon" viewBox="0 0 20 18">

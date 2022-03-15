@@ -138,7 +138,6 @@ window.addEventListener("load", function() {
   const loginToggle = document.querySelector(".login__toggle--popup");
 
   loginHeaderToggle.forEach((toggle) => {
-    console.log(toggle)
     toggle.removeAttribute("href");
   })
 

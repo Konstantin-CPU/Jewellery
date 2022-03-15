@@ -32,10 +32,11 @@
                 <svg class="page-header__form-search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.0482 10.0737L14 13.0248L13.0248 14L10.0737 11.0482C8.9757 11.9285 7.60993 12.4072 6.20262 12.4052C2.77877 12.4052 0 9.62646 0 6.20262C0 2.77877 2.77877 0 6.20262 0C9.62646 0 12.4052 2.77877 12.4052 6.20262C12.4072 7.60993 11.9285 8.9757 11.0482 10.0737ZM9.66575 9.56237C10.5404 8.66291 11.0289 7.45722 11.0269 6.20262C11.0269 3.53687 8.86768 1.37836 6.20262 1.37836C3.53687 1.37836 1.37836 3.53687 1.37836 6.20262C1.37836 8.86768 3.53687 11.0269 6.20262 11.0269C7.45722 11.0289 8.66291 10.5404 9.56237 9.66575L9.66575 9.56237Z" fill="black"></path>
                 </svg>
-                <input type="text" placeholder="Type here to search" name="search">
+                <input type="search" placeholder="Type here to search" name="search" id="header-main-search">
+                <label for="header-main-search" class="visually-hidden">Search jewellerry</label>
               </div>
             </form>
-            <a class="page-header__logo" href="index.html" aria-label="Our logo">
+            <a class="page-header__logo" href="main.html" aria-label="Our logo">
               <svg class="page-header__logo-image" width="66" height="66">
                 <use xlink:href="img/icons/sprite.svg#logo-icon"></use>
               </svg>
@@ -44,16 +45,15 @@
               <li class="page-header__menu-item">
                 <a href="login.html" class="page-header__menu-link page-header__login-link link">Login</a>
               </li>
-              <li class="page-header__menu-item">
-                <a href="#" class="page-header__menu-link link">Cart <span>0</span></a>
+              <li class="page-header__menu-item page-header__menu-item--cart">
+                <a class="page-header__menu-link page-header__cart-link link" href="#" aria-label="Your cart">
+                  <span>Cart <span class="page-header__cart-elements-amount">0</span></span>
+                  <svg class="page-header__cart-icon" width="20" height="18">
+                    <use xlink:href="img/icons/sprite.svg#cart-icon"></use>
+                  </svg>
+                </a>
               </li>
             </ul>
-            <button class="page-header__cart-button button">
-              <span class="visually-hidden">Open/close cart menu</span>
-              <svg class="page-header__cart-icon" width="20" height="18">
-                <use xlink:href="img/icons/sprite.svg#cart-icon"></use>
-              </svg>
-            </button>
           </div>
           <nav class="page-header__navigation">
             <form action="get" class="page-header__navigation-form page-header__form">
@@ -61,7 +61,8 @@
                 <svg class="page-header__form-search-icon" width="16" height="16">
                   <use xlink:href="img/icons/sprite.svg#search-icon"></use>
                 </svg>
-                <input type="text" name="search">
+                <input type="search" name="search" id="header-nav-search">
+                <label for="header-nav-search" class="visually-hidden">Search jewellerry</label>
               </div>
             </form>
             <ul class="page-header__navigation-list list">
@@ -103,10 +104,13 @@
         <form action="#" class="login__form">
           <div class="login__body">
             <h2 class="heading">Log In</h2>
-            <input class="login__email" type="email" name="email" placeholder="Your E-mail" required="">
-            <input type="password" name="password" placeholder="Password" required="">
+            <input class="login__email" type="email" name="email" placeholder="Your E-mail" id="login-email" required="">
+            <label for="login-email" class="visually-hidden">Enter your email</label>
+            <input type="password" name="password" placeholder="Password" id="login-password" required="">
+            <label for="login-password" class="visually-hidden">Enter your password</label>
             <a href="#" class="login__forgotten-password link">Forgot your password?</a>
-            <input type="submit" name="login" value="Log In">
+            <input type="submit" name="login" value="Log In" id="login-submit">
+            <label for="login-submit" class="visually-hidden">Log in</label>
             <p class="paragraph">Don't have an account?<a href="#" class="login__sign-up link">Sign up</a></p>
           </div>
           <button class="login__toggle login__toggle--page button" type="button" onclick="history.go(-1)"><span class="visually-hidden">Close</span></button>
@@ -119,11 +123,13 @@
           <h3 class="heading">The good stuff in your inbox</h3>
           <p class="paragraph">News and updates from CH. No spam, we promise.</p>
           <div class="page-footer__subscription-block">
-            <input type="email" name="email" placeholder="Your E-mail">
+            <input type="email" name="email" placeholder="Your E-mail" id="footer-email">
+            <label for="footer-email" class="visually-hidden">Enter your email</label>
             <div class="page-footer__subscription-submit-block">
-              <input type="submit" name="sign-up" value="Sign Up">
+              <input type="submit" name="sign-up" value="Sign Up" id="footer-sign-up">
+              <label for="footer-sign-up" class="visually-hidden">Sign up</label>
               <svg class="page-footer__subscription-block-icon" width="29" height="9">
-                <use xlink:href="img/icons/sprite.svg#arrow-icon"></use>
+                <use xlink:href="img/icons/sprite.svg#arrow-footer-icon"></use>
               </svg>
             </div>
           </div>
