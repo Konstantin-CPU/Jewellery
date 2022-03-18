@@ -41,19 +41,21 @@
                 <use xlink:href="img/icons/sprite.svg#logo-icon"></use>
               </svg>
             </a>
-            <ul class="page-header__menu list">
-              <li class="page-header__menu-item">
-                <a href="login.html" class="page-header__menu-link page-header__login-link link">Login</a>
-              </li>
-              <li class="page-header__menu-item page-header__menu-item--cart">
-                <a class="page-header__menu-link page-header__cart-link link" href="#" aria-label="Your cart">
-                  <span>Cart <span class="page-header__cart-elements-amount">0</span></span>
-                  <svg class="page-header__cart-icon" width="20" height="18">
-                    <use xlink:href="img/icons/sprite.svg#cart-icon"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
+            <div class="page-header__menu-container">
+              <ul class="page-header__menu list">
+                <li class="page-header__menu-item page-header__menu-item--login">
+                  <a href="login.html" tabindex="0" class="page-header__menu-link page-header__login-link link">Login</a>
+                </li>
+                <li class="page-header__menu-item page-header__menu-item--cart">
+                  <a class="page-header__menu-link page-header__cart-link link" href="#" aria-label="Your cart">
+                    <span>Cart <span class="page-header__cart-elements-amount">0</span></span>
+                    <svg class="page-header__cart-icon" width="20" height="18">
+                      <use xlink:href="img/icons/sprite.svg#cart-icon"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <nav class="page-header__navigation">
             <form action="get" class="page-header__navigation-form page-header__form">
@@ -93,7 +95,7 @@
                 <a href="#" class="page-header__info-link link">Contact Us</a>
               </li>
             </ul>
-            <a href="#" class="page-header__navigation-login page-header__login-link link">Login</a>
+            <a href="#" class="page-header__navigation-login page-header__login-link page-header__login-link--menu link">Login</a>
           </nav>
         </div>
       </div>
@@ -123,7 +125,7 @@
           <h3 class="heading">The good stuff in your inbox</h3>
           <p class="paragraph">News and updates from CH. No spam, we promise.</p>
           <div class="page-footer__subscription-block">
-            <input type="email" name="email" placeholder="Your E-mail" id="footer-email">
+            <input type="email" name="email" placeholder="Your E-mail" id="footer-email" required>
             <label for="footer-email" class="visually-hidden">Enter your email</label>
             <div class="page-footer__subscription-submit-block">
               <input type="submit" name="sign-up" value="Sign Up" id="footer-sign-up">

@@ -1,7 +1,7 @@
 .instagram__wrapper {
   max-width: 1210px;
   margin: 0 auto;
-  padding: 102px 20px 130px;
+  padding: 102px 20px 123px;
   text-align: center;
 
   h2 {
@@ -24,8 +24,8 @@
 .instagram__photos {
   display: grid;
   grid-template-columns: (230/1170 * 100%) (399/1170 * 100%) repeat(2, (230/1170 * 100%));
-  grid-template-rows: 230px 150px;
-  row-gap: 34px;
+  grid-template-rows: min-content min-content;
+  row-gap: 26px;
   column-gap: 27px;
 }
 
@@ -42,7 +42,9 @@
 
 .instagram__photo {
   width: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  object-position: 50% 50%;
 }
 
 @media (max-width: $tablet-width) {
@@ -59,6 +61,8 @@
     grid-template-rows: 133px 87px;
     column-gap: 16px;
     row-gap: 20px;
+    max-width: 678px;
+    margin: 0 auto;
   }
 
   .instagram__photo {
@@ -81,6 +85,7 @@
     grid-template-rows: 133px 87px 87px;
     column-gap: 24px;
     row-gap: 27px;
+    max-width: 290px;
   }
 
   .instagram__photo-container--no-show-on-mobile {

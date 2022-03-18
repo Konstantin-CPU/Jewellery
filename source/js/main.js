@@ -134,22 +134,57 @@ window.addEventListener("load", function() {
   // login
 
   const popupLogin = document.querySelector(".login--popup");
-  const loginHeaderToggle = document.querySelectorAll(".page-header__login-link");
+  const loginContainer = document.querySelector(".page-header__menu-item--login");
+  const loginHeaderLink = document.querySelector(".page-header__login-link");
   const loginToggle = document.querySelector(".login__toggle--popup");
+  const menuToggle = document.querySelector(".page-header__login-link--menu");
 
-  loginHeaderToggle.forEach((toggle) => {
-    toggle.removeAttribute("href");
-  })
+  console.log(menuToggle)
+
+  const loginHeaderToggle = document.createElement("button");
+  loginHeaderToggle.classList.add("page-header__menu-link");
+  loginHeaderToggle.classList.add("button");
+  loginHeaderToggle.innerHTML = "Login";
+
+  loginContainer.removeChild(loginHeaderLink);
+  loginContainer.appendChild(loginHeaderToggle);
+
+  const disableFocus = function() {
+    let links = document.querySelectorAll("a");
+    let buttons = document.querySelectorAll("button");
+
+    links.forEach((link) => {
+      link.setAttribute("pointer-events", "none");
+    })
+
+    buttons.forEach((button) => {
+      button.setAttribute("disabled", true);
+    })
+
+    loginToggle.removeAttribute("disabled");
+  }
+
+  const enableFocus = function() {
+    let links = document.querySelectorAll("a");
+    let buttons = document.querySelectorAll("button");
+
+    links.forEach((link) => {
+      link.removeAttribute("pointer-events", "none");
+    })
+
+    buttons.forEach((button) => {
+      button.removeAttribute("disabled");
+    })
+  }
 
   if (popupLogin) {
-    loginHeaderToggle.forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        popupLogin.classList.remove("visually-hidden");
-        bodyOverlay.classList.remove("visually-hidden");
-        document.querySelector(".page__body").classList.add("page__body--scroll-disabled");
-        document.querySelector(".login__email").focus();
-        pageHeader.classList.remove("page-header--menu-opened")
-      })
+    loginHeaderToggle.addEventListener("click", () => {
+      disableFocus();
+      popupLogin.classList.remove("visually-hidden");
+      bodyOverlay.classList.remove("visually-hidden");
+      document.querySelector(".page__body").classList.add("page__body--scroll-disabled");
+      document.querySelector(".login__email").focus();
+      pageHeader.classList.remove("page-header--menu-opened")
     })
 
     document.addEventListener('keydown', (evt) => {
@@ -157,6 +192,7 @@ window.addEventListener("load", function() {
         popupLogin.classList.add("visually-hidden");
         bodyOverlay.classList.add("visually-hidden");
         document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
+        enableFocus();
       }
     })
 
@@ -164,12 +200,23 @@ window.addEventListener("load", function() {
         popupLogin.classList.add("visually-hidden");
         bodyOverlay.classList.add("visually-hidden");
         document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
+        enableFocus();
     })
 
     loginToggle.addEventListener("click", () =>{
       popupLogin.classList.add("visually-hidden");
       bodyOverlay.classList.add("visually-hidden");
       document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
+      enableFocus();
+    })
+
+    menuToggle.addEventListener("click", () => {
+      popupLogin.classList.remove("visually-hidden");
+      bodyOverlay.classList.remove("visually-hidden");
+      document.querySelector(".page__body").classList.add("page__body--scroll-disabled");
+      document.querySelector(".login__email").focus();
+      pageHeader.classList.remove("page-header--menu-opened");
+      disableFocus();
     })
   }
 
@@ -178,8 +225,6 @@ window.addEventListener("load", function() {
     form.addEventListener("submit", () => {
       document.querySelectorAll(".login__email").forEach((email) => {
         if (email.value != "") {
-          console.log(1);
-          console.log(email.value);
           localStorage.setItem("userEmail", email.value)
         }
       })

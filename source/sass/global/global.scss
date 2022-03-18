@@ -76,8 +76,18 @@ body {
   border-bottom: 1px solid $brown;
 }
 
-input[type="submit"] {
+input[type="submit"],
+input[type="checkbox"] {
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+label {
+  outline: 0;
 
   &:hover,
   &:focus {

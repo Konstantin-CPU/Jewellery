@@ -9,6 +9,7 @@
     display: block;
     background: url("../img/icons/arrow-icon.svg") 50% no-repeat;
     transform: rotate(180deg);
+    order: -1;
 
     &::after {
       content: "";
@@ -40,11 +41,20 @@
   .swiper-pagination-bullet {
     background-color: transparent;
   }
+
+  .swiper-container {
+    padding-bottom: 94px;
+  }
+}
+
+.swiper-pagination {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: $tablet-width) {
   .swiper-container {
-    padding-bottom: 110px;
+    padding-bottom: 84px;
   }
 
   .new-offers__wrapper {
@@ -67,18 +77,22 @@
     .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
       margin-right: 15px;
     }
+
+    .swiper-container {
+      padding-bottom: 84px;
+    }
   }
 }
 
 @media (max-width: $mobile-width) {
-  .swiper-container {
-    padding-bottom: 63px;
-  }
-
   .new-offers__wrapper {
     .swiper-button-next,
     .swiper-button-prev {
       display: none;
+    }
+
+    .swiper-container {
+      padding-bottom: 39px;
     }
 
     .swiper-pagination {

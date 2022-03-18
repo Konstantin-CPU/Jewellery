@@ -1,7 +1,7 @@
 .new-offers__wrapper {
   max-width: 1210px;
   margin: 0 auto;
-  padding: 120px 20px;
+  padding: 120px 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,6 +45,7 @@
 .new-offers__offer-image {
   max-width: 100%;
   margin-bottom: 10px;
+  object-fit: contain;
 }
 
 @media (max-width: $tablet-width) {
