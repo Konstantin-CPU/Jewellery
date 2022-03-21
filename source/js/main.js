@@ -138,9 +138,6 @@ window.addEventListener("load", function() {
   const loginHeaderLink = document.querySelector(".page-header__login-link");
   const loginToggle = document.querySelector(".login__toggle--popup");
   const menuToggle = document.querySelector(".page-header__login-link--menu");
-
-  console.log(menuToggle)
-
   const loginHeaderToggle = document.createElement("button");
   loginHeaderToggle.classList.add("page-header__menu-link");
   loginHeaderToggle.classList.add("button");

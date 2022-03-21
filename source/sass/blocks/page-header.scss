@@ -97,6 +97,13 @@
   min-width: 40px;
   background-color: transparent;
   cursor: pointer;
+  overflow-wrap: break-word;
+  max-inline-size: 120px;
+
+
+  span {
+    overflow-wrap: break-word;
+  }
 }
 
 .page-header__navigation-form {
