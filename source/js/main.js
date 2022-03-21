@@ -149,35 +149,82 @@ window.addEventListener("load", function() {
   const disableFocus = function() {
     let links = document.querySelectorAll("a");
     let buttons = document.querySelectorAll("button");
+    let inputs = document.querySelectorAll("input");
+    let swiperPagination = document.querySelectorAll("span");
+    let swiperButtonNext = document.querySelector(".swiper-button-next");
+    let swiperButtonPrev = document.querySelector(".swiper-button-prev");
+
+    if (swiperPagination) {
+      swiperPagination.forEach((span) => {
+        span.tabIndex = -1;
+      })
+    }
+
+    if (swiperButtonNext) {
+      swiperButtonNext.tabIndex = -1;
+    }
+
+    if (swiperButtonPrev) {
+      swiperButtonPrev.tabIndex = -1;
+    }
 
     links.forEach((link) => {
-      link.setAttribute("pointer-events", "none");
+      link.tabIndex = -1;
     })
 
     buttons.forEach((button) => {
       button.setAttribute("disabled", true);
     })
 
+    inputs.forEach((input) => {
+      input.setAttribute("disabled", true);
+    })
+
     loginToggle.removeAttribute("disabled");
+    popupLogin.querySelectorAll("input").forEach((input) => {
+      input.removeAttribute("disabled");
+    })
   }
 
   const enableFocus = function() {
     let links = document.querySelectorAll("a");
     let buttons = document.querySelectorAll("button");
+    let inputs = document.querySelectorAll("input");
+    let swiperPagination = document.querySelectorAll("span");
+    let swiperButtonNext = document.querySelector(".swiper-button-next");
+    let swiperButtonPrev = document.querySelector(".swiper-button-prev");
+
+    if (swiperPagination) {
+      swiperPagination.forEach((span) => {
+        span.tabIndex = 0;
+      })
+    }
+
+    if (swiperButtonNext) {
+      swiperButtonNext.tabIndex = 0;
+    }
+
+    if (swiperButtonPrev) {
+      swiperButtonPrev.tabIndex = 0;
+    }
 
     links.forEach((link) => {
-      link.removeAttribute("pointer-events", "none");
+      link.tabIndex = 0;
     })
 
     buttons.forEach((button) => {
       button.removeAttribute("disabled");
+    })
+
+    inputs.forEach((input) => {
+      input.removeAttribute("disabled");
     })
   }
 
   if (popupLogin) {
     loginHeaderToggle.addEventListener("click", () => {
       disableFocus();
-      popupLogin.classList.remove("visually-hidden");
+      popupLogin.classList.add("login--popup-opened");
       bodyOverlay.classList.remove("visually-hidden");
       document.querySelector(".page__body").classList.add("page__body--scroll-disabled");
       document.querySelector(".login__email").focus();
@@ -186,7 +233,7 @@ window.addEventListener("load", function() {
 
     document.addEventListener('keydown', (evt) => {
       if (evt.key === 'Esc' || evt.key === 'Escape') {
-        popupLogin.classList.add("visually-hidden");
+        popupLogin.classList.remove("login--popup-opened");
         bodyOverlay.classList.add("visually-hidden");
         document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
         enableFocus();
@@ -194,26 +241,27 @@ window.addEventListener("load", function() {
     })
 
     document.querySelector(".page__body-overlay").addEventListener("click", function() {
-        popupLogin.classList.add("visually-hidden");
-        bodyOverlay.classList.add("visually-hidden");
-        document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
-        enableFocus();
+      popupLogin.classList.remove("login--popup-opened");
+      bodyOverlay.classList.add("visually-hidden");
+      document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
+      enableFocus();
     })
 
     loginToggle.addEventListener("click", () =>{
-      popupLogin.classList.add("visually-hidden");
+      popupLogin.classList.remove("login--popup-opened");
       bodyOverlay.classList.add("visually-hidden");
       document.querySelector(".page__body").classList.remove("page__body--scroll-disabled");
       enableFocus();
     })
 
     menuToggle.addEventListener("click", () => {
-      popupLogin.classList.remove("visually-hidden");
+      disableFocus();
+      popupLogin.classList.add("login--popup-opened");
       bodyOverlay.classList.remove("visually-hidden");
       document.querySelector(".page__body").classList.add("page__body--scroll-disabled");
-      document.querySelector(".login__email").focus();
       pageHeader.classList.remove("page-header--menu-opened");
-      disableFocus();
+      document.querySelector(".login__email").focus();
+
     })
   }
 
