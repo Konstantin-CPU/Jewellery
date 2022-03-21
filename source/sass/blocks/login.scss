@@ -3,22 +3,27 @@
 }
 
 .login--popup {
-  position: fixed;
-  z-index: 100;
+  display: none;
 
-  .login__container {
-    height: 100vh;
+  &-opened {
+    display: block;
     position: fixed;
-    top: 0;
-    left: 50%;
-    width: 430px;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    padding-bottom: 20px;
-    z-index: 1001;
-    margin-left: -215px;
+    z-index: 100;
+
+    .login__container {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      width: 430px;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      padding-top: 100px;
+      padding-bottom: 20px;
+      z-index: 1001;
+      margin-left: -215px;
+    }
   }
 }
 
@@ -92,6 +97,7 @@
   input[type="password"] {
     background-color: transparent;
     border: 0;
+    border-radius: unset;
     border-bottom: 1px solid $dark;
     font-weight: 500;
     font-size: 14px;
@@ -140,7 +146,7 @@
     font-family: "Poppins", "Arial", sans-serif;
     cursor: pointer;
     margin-bottom: 15px;
-    border-radius: 0;
+    border-radius: unset;
   }
 
   p {
